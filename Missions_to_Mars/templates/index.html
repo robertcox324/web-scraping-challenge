@@ -1,0 +1,55 @@
+<!-- Web scraping HW -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mars Mission</title>
+	<h6>graphic design is my passion</h6>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Mars Mission</h1>
+			<a href="/scrape">Scrape Again?</a>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<h4 class="heading">News:</h4>
+				<h4 class="heading">{{mars["News_Title"]}} </h4>
+			</div>
+			<div class="col-md-6">
+				Mars Weather: {{mars["Weather_Tweet"]}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+			<h6>{{mars["News_Text"]}} </h6>
+			</div>
+		
+			<div class="col-md-6">
+				{{mars["Mars_Facts_Html"]|safe}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Space Image</h1>
+				<img src={{mars["Space_Image"]}}>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">        
+				{% for hemisphere in mars["MarsHemispheres"] %}
+					
+				<h5 class="card-title">{{hemisphere["title"]}}</h5>
+				<img src={{hemisphere["img url"]}}>
+				
+				{% endfor %}
+
+			</div>
+		</div>
+	</div>
+</body>
+    
